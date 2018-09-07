@@ -1,4 +1,4 @@
-package config;
+package com.assignment1.config;
 
 import com.assignment1.pojo.Event;
 import com.assignment1.pojo.Login;
