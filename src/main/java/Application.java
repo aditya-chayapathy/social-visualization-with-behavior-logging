@@ -1,6 +1,6 @@
-import com.assignment1.repository.StudentRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.assignment1.pojo.User;
+import com.assignment1.repository.UserRepository;
+import com.assignment1.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,9 +14,12 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories
 @EntityScan("com")
 public class Application implements CommandLineRunner {
+
     @Autowired
-    StudentRepository repository;
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    UserRepository userRepository;
+
+    @Autowired
+    UserService userService;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -24,16 +27,21 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        User user = userRepository.findByNameAndPasswordAndAddress("aaa", "123", "1225 S Dorsey Ln");
+        if (user == null) {
+            userService.addUser("aaa", "123", "1225 S Dorsey Ln");
+        }
 
-//        logger.info("Student id 10001 -> {}", repository.findById(10001L));
-//
-//        logger.info("Inserting -> {}", repository.save(new Student("John", "A1234657")));
-//
-//        logger.info("Update 10003 -> {}", repository.save(new Student(10001L, "Name-Updated", "New-Passport")));
-//
-//        repository.deleteById(10002L);
+        user = userRepository.findByNameAndPasswordAndAddress("bbb", "123", "1225 S Dorsey Ln");
+        if (user == null) {
+            userService.addUser("bbb", "123", "1225 S Dorsey Ln");
+        }
 
-        logger.info("All users -> {}", repository.findAll());
+        user = userRepository.findByNameAndPasswordAndAddress("ccc", "123", "1225 S Dorsey Ln");
+        if (user == null) {
+            userService.addUser("ccc", "123", "1225 S Dorsey Ln");
+        }
+
     }
 
 }
