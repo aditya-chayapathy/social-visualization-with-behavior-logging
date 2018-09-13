@@ -12,8 +12,8 @@ public interface LoginRepository extends JpaRepository<Login, Long> {
 
     public Login findByUserIdAndTimestampAndLoginType(Long userId, Long timestamp, String loginType);
 
-    public List<Login> findByUserId(Long userId);
+    public List<Login> findTop5ByUserIdOrderByTimestampDesc(Long userId);
 
-    public List<Login> findByUserIdAndLoginType(Long userId, String loginType);
+    public List<Login> findTop5ByUserIdAndLoginTypeOrderByTimestampDesc(Long userId, String loginType);
 
 }

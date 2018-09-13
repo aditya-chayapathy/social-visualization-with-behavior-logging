@@ -51,7 +51,7 @@ public class UserService {
     public User logUserIn(String username, String password) {
         if (checkIfUserExists(username, password)) {
             User user = getUserDetails(username, password);
-            loginService.addLoginInfo(user.getId(), System.currentTimeMillis() / 100, "LOG_IN");
+            loginService.addLoginInfo(user.getId(), System.currentTimeMillis(), "LOG_IN");
 
             return user;
         } else {

@@ -29,9 +29,9 @@ public class LoginService {
 
     public List<Login> getLoginInfoForUser(Long userId, String loginType) {
         if (loginType == null) {
-            return loginRepository.findByUserId(userId);
+            return loginRepository.findTop5ByUserIdOrderByTimestampDesc(userId);
         }
 
-        return loginRepository.findByUserIdAndLoginType(userId, loginType);
+        return loginRepository.findTop5ByUserIdAndLoginTypeOrderByTimestampDesc(userId, loginType);
     }
 }

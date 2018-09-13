@@ -6,6 +6,15 @@
 </head>
 <body>
 <h1>ACCOUNT PAGE</h1>
-<p ng-bind="userId"></p>
+<p>Welcome {{username}}</p>
+<p>User ID: {{userId}}</p>
+<div>
+    <p>Last 5 login time:</p>
+    <ol>
+        <li data-ng-repeat="item in lastLoginDetails">
+            {{item.timestamp | date:'medium'}}
+        </li>
+    </ol>
+</div>
 </body>
 </html>

@@ -11,6 +11,7 @@ app.controller('LoginController', function ($scope, $location, $rootScope, $http
             if (response.data) {
                 $scope.error = false;
                 $rootScope.userId = response.data.id;
+                $rootScope.username = response.data.name;
                 $location.path('/account');
             } else {
                 $scope.error = true
