@@ -27,17 +27,17 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        User user = userRepository.findByNameAndPasswordAndAddress("aaa", "123", "1225 S Dorsey Ln");
+        User user = userRepository.findByNameAndPassword("aaa", "123");
         if (user == null) {
             userService.addUser("aaa", "123", "1225 S Dorsey Ln");
         }
 
-        user = userRepository.findByNameAndPasswordAndAddress("bbb", "123", "1225 S Dorsey Ln");
+        user = userRepository.findByNameAndPassword("bbb", "123");
         if (user == null) {
             userService.addUser("bbb", "123", "1225 S Dorsey Ln");
         }
 
-        user = userRepository.findByNameAndPasswordAndAddress("ccc", "123", "1225 S Dorsey Ln");
+        user = userRepository.findByNameAndPassword("ccc", "123");
         if (user == null) {
             userService.addUser("ccc", "123", "1225 S Dorsey Ln");
         }

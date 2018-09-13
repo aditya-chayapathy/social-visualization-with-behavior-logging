@@ -20,20 +20,25 @@ public class UserService {
         return newUser;
     }
 
-    public User removeUser(String name, String password, String address) {
-        User currentUser = userRepository.findByNameAndPasswordAndAddress(name, password, address);
+    public User removeUser(String name, String password) {
+        User currentUser = userRepository.findByNameAndPassword(name, password);
         userRepository.delete(currentUser);
 
         return currentUser;
     }
 
-    public Boolean checkIfUserExists(String name, String password, String address) {
-        User user = userRepository.findByNameAndPasswordAndAddress(name, password, address);
+    public Boolean checkIfUserExists(String name, String password) {
+        User user = userRepository.findByNameAndPassword(name, password);
         if (user != null) {
             return Boolean.TRUE;
         }
 
         return Boolean.FALSE;
+    }
+
+    public User getUserDetails(String name, String password) {
+        return userRepository.findByNameAndPassword(name, password);
+
     }
 
     public List<User> getAllUsers() {

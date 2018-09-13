@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<form>
+    <p>Enter Username:</p>
+    <input type="text" data-ng-model="username" autofocus>
+    <p>Enter Password:</p>
+    <input type="password" data-ng-model="password">
+    <button data-ng-click="login()">Log In</button>
+    <div data-ng-show="error">
+        <h1>INCORRECT USERNAME OR PASSWORD</h1>
+    </div>
+</form>
+</body>
+</html>

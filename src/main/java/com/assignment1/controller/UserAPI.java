@@ -31,17 +31,22 @@ public class UserAPI {
     @RequestMapping(value = "/removeUser", method = RequestMethod.POST)
     @CrossOrigin
     public User removeUser(@RequestParam(value = "name") String name,
-                           @RequestParam(value = "password") String password,
-                           @RequestParam(value = "address") String address) {
-        return userService.removeUser(name, password, address);
+                           @RequestParam(value = "password") String password) {
+        return userService.removeUser(name, password);
     }
 
     @RequestMapping(value = "/checkIfUserExists")
     @CrossOrigin
     public Boolean checkIfUserExists(@RequestParam(value = "name") String name,
-                                     @RequestParam(value = "password") String password,
-                                     @RequestParam(value = "address") String address) {
-        return userService.checkIfUserExists(name, password, address);
+                                     @RequestParam(value = "password") String password) {
+        return userService.checkIfUserExists(name, password);
+    }
+
+    @RequestMapping(value = "/getUserDetails")
+    @CrossOrigin
+    public User getUserDetails(@RequestParam(value = "name") String name,
+                               @RequestParam(value = "password") String password) {
+        return userService.getUserDetails(name, password);
     }
 
     @RequestMapping(value = "/getAllUsers")
