@@ -1,7 +1,7 @@
 'use strict';
 
 var app = angular.module('userBehaviorLogging', ['ngRoute']);
-app.config(['$routeProvider', function ($routeProvider) {
+app.config(function ($routeProvider) {
     $routeProvider
         .when('/index.html', {
             controller: 'LoginController',
@@ -27,7 +27,4 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'views/error.html'
         })
         .otherwise({redirectTo: '/error'});
-}]);
-app.run(function ($rootScope) {
-    $rootScope.userDetails = {};
 });

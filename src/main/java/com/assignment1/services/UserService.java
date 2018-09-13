@@ -13,6 +13,9 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    LoginService loginService;
+
     public User addUser(String name, String password, String address) {
         User newUser = new User(name, password, address);
         userRepository.save(newUser);
@@ -43,6 +46,17 @@ public class UserService {
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    public User logUserIn(String username, String password) {
+        if (checkIfUserExists(username, password)) {
+            User user = getUserDetails(username, password);
+            loginService.addLoginInfo(user.getId(), System.currentTimeMillis() / 100, "LOG_IN");
+
+            return user;
+        } else {
+            return null;
+        }
     }
 
 }
