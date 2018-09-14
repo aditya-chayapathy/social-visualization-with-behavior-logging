@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('AccountController', function ($scope, $location, $rootScope, $http) {
+app.controller('StackOverFlowController', function ($scope, $location, $rootScope, $http) {
     if ($rootScope.userId === "" || $rootScope.username === "") {
         $location.path("/");
     }
@@ -8,13 +8,6 @@ app.controller('AccountController', function ($scope, $location, $rootScope, $ht
     $scope.userId = $rootScope.userId;
 
     $scope.username = $rootScope.username;
-
-    $http({
-        method: 'GET',
-        url: '/login/getLoginInfoForUser?userId=' + $scope.userId + '&loginType=LOG_IN'
-    }).then(function (response) {
-        $scope.lastLoginDetails = response.data
-    });
 
     $scope.logout = function () {
         $http({
@@ -33,8 +26,8 @@ app.controller('AccountController', function ($scope, $location, $rootScope, $ht
         $location.path("/visualization")
     };
 
-    $scope.stackOverFlowTab = function () {
-        $location.path("/stackoverflow")
+    $scope.accountTab = function () {
+        $location.path("/account")
     }
 
 });

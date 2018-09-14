@@ -59,4 +59,10 @@ public class UserService {
         }
     }
 
+    public Boolean logUserOut(Long userId) {
+        loginService.addLoginInfo(userId, System.currentTimeMillis(), "LOG_OUT");
+
+        return Boolean.TRUE;
+    }
+
 }

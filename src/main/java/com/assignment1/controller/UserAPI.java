@@ -67,4 +67,10 @@ public class UserAPI {
         return userService.logUserIn(username, password);
     }
 
+    @RequestMapping(value = "/logUserOut", method = POST)
+    @CrossOrigin
+    public Boolean logUserOut(@RequestParam(value = "userId") Long userId) {
+        return userService.logUserOut(userId);
+    }
+
 }

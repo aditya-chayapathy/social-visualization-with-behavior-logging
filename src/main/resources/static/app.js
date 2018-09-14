@@ -23,8 +23,16 @@ app.config(function ($routeProvider) {
             controller: 'VisualizationController',
             templateUrl: 'views/visualization.html'
         })
+        .when('/stackoverflow', {
+            controller: 'StackOverFlowController',
+            templateUrl: 'views/stackoverflow.html'
+        })
         .when('/error', {
             templateUrl: 'views/error.html'
         })
         .otherwise({redirectTo: '/error'});
+});
+app.run(function ($rootScope) {
+    $rootScope.username = "";
+    $rootScope.userId = "";
 });
