@@ -14,8 +14,8 @@ public class EventService {
     @Autowired
     EventRepository eventRepository;
 
-    public Event addEvent(Long userId, Long timestamp, String eventType) {
-        Event event = new Event(userId, timestamp, eventType);
+    public Event addEvent(Long userId, Long timestamp, String eventType, String eventInfo) {
+        Event event = new Event(userId, timestamp, eventType, eventInfo);
         eventRepository.save(event);
 
         return event;

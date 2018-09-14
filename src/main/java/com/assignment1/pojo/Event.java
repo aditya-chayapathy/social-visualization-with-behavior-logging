@@ -15,15 +15,25 @@ public class Event {
     private Long userId;
     private Long timestamp;
     private String eventType;
+    private String eventInfo;
 
     public Event() {
         super();
     }
 
-    public Event(Long userId, Long timestamp, String eventType) {
+    public Event(Long userId, Long timestamp, String eventType, String eventInfo) {
         this.userId = userId;
         this.timestamp = timestamp;
         this.eventType = eventType;
+        this.eventInfo = eventInfo;
+    }
+
+    public String getEventInfo() {
+        return eventInfo;
+    }
+
+    public void setEventInfo(String eventInfo) {
+        this.eventInfo = eventInfo;
     }
 
     public Long getId() {
