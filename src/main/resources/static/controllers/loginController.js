@@ -18,4 +18,22 @@ app.controller('LoginController', function ($scope, $location, $rootScope, $http
             }
         });
     };
+
+    $scope.signup = function () {
+        var name = $scope.signUpAccName;
+        var pass = $scope.signUpAccPass;
+        var addr = $scope.signUpAccAddr;
+        $http({
+            method: 'POST',
+            url: 'user/addUser?name=' + name + '&password=' + pass + '&address=' + addr
+        }).then(function (response) {
+            if (response.data) {
+                $scope.signUpError = false;
+                $scope.signUpSuccess = true;
+            } else {
+                $scope.signUpError = true;
+                $scope.signUpSuccess = false;
+            }
+        })
+    }
 });
