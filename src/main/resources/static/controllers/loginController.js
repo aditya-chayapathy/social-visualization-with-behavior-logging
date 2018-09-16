@@ -35,5 +35,5 @@ app.controller('LoginController', function ($scope, $location, $rootScope, $http
                 $scope.signUpSuccess = false;
             }
         })
-    }
+    };
 });

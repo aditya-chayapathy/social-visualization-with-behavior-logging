@@ -19,10 +19,9 @@ public class EventAPI {
 
     @RequestMapping(value = "/addEvent", method = RequestMethod.POST)
     public Event addEvent(@RequestParam(value = "userId") Long userId,
-                          @RequestParam(value = "timestamp") Long timestamp,
                           @RequestParam(value = "eventType") String eventType,
                           @RequestParam(value = "eventInfo") String eventInfo) {
-        return eventService.addEvent(userId, timestamp, eventType, eventInfo);
+        return eventService.addEvent(userId, eventType, eventInfo);
     }
 
     @RequestMapping(value = "/removeEvent", method = RequestMethod.POST)
