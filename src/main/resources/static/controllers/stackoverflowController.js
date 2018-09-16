@@ -22,12 +22,8 @@ app.controller('StackOverFlowController', function ($scope, $location, $rootScop
         });
     };
 
-    $scope.socialVisualizationTab = function () {
-        $location.path("/visualization")
-    };
-
     $scope.accountTab = function () {
-        $location.path("/account")
+        $location.path("/account");
     };
 
     $scope.keyPress = function ($event) {
