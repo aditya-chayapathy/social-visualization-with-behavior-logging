@@ -3,38 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <title>Account</title>
+
+    <style>
+
+        body {
+            background: url("../images/background.jpg") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        .textCenterAlign {
+            text-align: center;
+        }
+
+        .card {
+            display: inline-block;
+        }
+
+        .logo {
+            height: 200px;
+            width: 200px;
+            overflow: hidden;
+        }
+
+    </style>
+
 </head>
 <body>
-<h1>ACCOUNT PAGE</h1>
-<p>Welcome {{username}}</p>
-<p>User ID: {{userId}}</p>
 <div>
-    <p>Last 5 login time:</p>
-    <ol>
-        <li data-ng-repeat="item in lastLoginDetails">
-            {{item.timestamp | date:'medium'}}
-        </li>
-    </ol>
-</div>
-<div>
-    <a href="" data-ng-click="logout()">Log Out</a>
-</div>
-<div>
-    <a href="" data-ng-click="socialVisualizationTab()">Social Visualization</a>
-</div>
-<div>
-    <a href="" data-ng-click="stackOverFlowTab()">Click here to check the StackOverFlow Page</a>
-</div>
-<div>
-    <p>The following user interactions are logged:</p>
-    <ol>
-        <li>Mouse Movement Trajectory</li>
-        <li>Mouse Click</li>
-        <li>Mouse Double Click</li>
-        <li>Keyboard Press</li>
-        <li>Text Copy</li>
-        <li>Text Paste</li>
-    </ol>
+    <div class="container textCenterAlign">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <div class="alert alert-primary">
+                    <h1>Account Page</h1>
+                    Welcome {{username}}
+                </div>
+            </div>
+            <div class="col-1">
+                <div>
+                    <a href="" data-ng-click="logout()">Log Out</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10 align-top">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top logo" src="../images/login.png" alt="Login Information"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Login Information</h5>
+                        <div class="card-text">
+                            <p>Last 5 login timestamps:</p>
+                            <ul class="list-group card-text">
+                                <li class="list-group-item" data-ng-repeat="item in lastLoginDetails">
+                                    {{item.timestamp | date:'medium'}}
+                                </li>
+
+                                <!--<li class="list-group-item">Mouse Movement Trajectory</li>-->
+                                <!--<li class="list-group-item">Mouse Click</li>-->
+                                <!--<li class="list-group-item">Mouse Double Click</li>-->
+                                <!--<li class="list-group-item">Keyboard Press</li>-->
+                                <!--<li class="list-group-item">Text Copy</li>-->
+                                <!--<li class="list-group-item">Text Paste</li>-->
+                            </ul>
+                        </div>
+                        <br/>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top logo" src="../images/visualization.jpg" alt="Visualization Page"/>
+                    <div class="card-body">
+                        <h5 class="card-title">User Behavior Visualization</h5>
+                        <div class="card-text">
+                            <p>The following user behaviors are visualized:</p>
+                            <ul class="list-group card-text">
+                                <li class="list-group-item">Mouse Movement Trajectory</li>
+                                <li class="list-group-item">Mouse Click</li>
+                                <li class="list-group-item">Mouse Double Click</li>
+                                <li class="list-group-item">Keyboard Press</li>
+                                <li class="list-group-item">Text Copy</li>
+                                <li class="list-group-item">Text Paste</li>
+                            </ul>
+                        </div>
+                        <br/>
+                        <a href="" class="btn btn-primary" data-ng-click="socialVisualizationTab()">Visualization
+                            Page</a>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top logo" src="../images/stackoverflow.jpg" alt="StackOverFlow Page"/>
+                    <div class="card-body">
+                        <h5 class="card-title">StackOverFlow Page</h5>
+                        <div class="card-text">
+                            <p>The following user behaviors are being logged:</p>
+                            <ul class="list-group card-text">
+                                <li class="list-group-item">Mouse Movement Trajectory</li>
+                                <li class="list-group-item">Mouse Click</li>
+                                <li class="list-group-item">Mouse Double Click</li>
+                                <li class="list-group-item">Keyboard Press</li>
+                                <li class="list-group-item">Text Copy</li>
+                                <li class="list-group-item">Text Paste</li>
+                            </ul>
+                        </div>
+                        <br/>
+                        <a href="" class="btn btn-primary" data-ng-click="stackOverFlowTab()">StackOverFlow Page</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class=row"></div>
+    </div>
 </div>
 </body>
 </html>
