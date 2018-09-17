@@ -4,30 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Home</title>
+
+    <style>
+
+        #incorrectCredentials {
+            position: relative;
+            top: 10%;
+        }
+
+        body {
+            background: url("../images/background.jpg") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+    </style>
+
 </head>
 <body>
-<form>
+<div>
     <div class="container">
         <div class="row"></div>
         <div class="row">
             <div class="col"></div>
             <div class="col">
-                Enter Username: <br/>
-                <input type="text" data-ng-model="username" autofocus> <br/>
-                Enter Password: <br/>
-                <input type="password" data-ng-model="password"> <br/><br/><br/>
-                <button type="button" class="btn btn-primary" data-ng-click="login()">Log In</button>
-                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">Sign
-                    Up
-                </button>
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                     aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
+                <form>
+                    <div class="form-group">
+                        <label>Enter Account Name:</label>
+                        <input type="text" data-ng-model="username" class="form-control"
+                               placeholder="Enter Account Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Enter Password:</label>
+                        <input type="password" data-ng-model="password" class="form-control"
+                               placeholder="Enter Password">
+                    </div>
+                    <button class="btn btn-primary" data-ng-click="login()">Log In</button>
+                    <button class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">Sign Up</button>
+                </form>
+
+                <div class="modal fade" id="exampleModal">
+                    <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
+                                <h5 class="modal-title">Sign Up</h5>
+                                <button type="button" class="close" data-dismiss="modal">
+                                    <span>&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
@@ -53,21 +77,24 @@
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="button" class="btn btn-primary" data-ng-click="signup()">Create Account
                                 </button>
-                                <br/>
-                                <label data-ng-show="signUpError">Error occurred while signing up!</label>
-                                <label data-ng-show="signUpSuccess">Successfully added new account!</label>
+                                <div>
+                                    <label data-ng-show="signUpError">Error occurred while signing up!</label>
+                                    <label data-ng-show="signUpSuccess">Successfully added new account!</label>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div data-ng-show="error">
-                    <h1>INCORRECT USERNAME OR PASSWORD</h1>
+                <div data-ng-show="error" id="incorrectCredentials">
+                    <div class="alert alert-danger">
+                        Incorrect Account Name or Password.
+                    </div>
                 </div>
             </div>
             <div class="col"></div>
         </div>
         <div class=row"></div>
     </div>
-</form>
+</div>
 </body>
 </html>

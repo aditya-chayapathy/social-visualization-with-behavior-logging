@@ -27,7 +27,6 @@ app.controller('StackOverFlowController', function ($scope, $location, $rootScop
     };
 
     $scope.keyPress = function ($event) {
-        console.log("dfgh");
         $http({
             method: 'POST',
             url: '/event/addEvent?userId=' + $scope.userId + '&eventType=KEY_PRESS&eventInfo=' + $event.key
@@ -86,10 +85,9 @@ app.controller('StackOverFlowController', function ($scope, $location, $rootScop
     };
 
     $scope.paste = function ($event) {
-        console.log("PASTE");
         $http({
             method: 'POST',
-            url: '/event/addEvent?userId=' + $scope.userId + '&eventType=PASTE&eventInfo=' + $event.target.data
+            url: '/event/addEvent?userId=' + $scope.userId + '&eventType=PASTE&eventInfo=NONE'
         }).then(function (response) {
             if (!response) {
                 console.log("ERROR OCCURRED");
