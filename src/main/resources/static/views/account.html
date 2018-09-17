@@ -56,21 +56,34 @@
                     <div class="card-body">
                         <h5 class="card-title">Login Information</h5>
                         <div class="card-text">
-                            <p>Last 5 login timestamps:</p>
+                            <p>Latest login timestamps:</p>
                             <ul class="list-group card-text">
                                 <li class="list-group-item" data-ng-repeat="item in lastLoginDetails">
                                     {{item.timestamp | date:'medium'}}
                                 </li>
-
-                                <!--<li class="list-group-item">Mouse Movement Trajectory</li>-->
-                                <!--<li class="list-group-item">Mouse Click</li>-->
-                                <!--<li class="list-group-item">Mouse Double Click</li>-->
-                                <!--<li class="list-group-item">Keyboard Press</li>-->
-                                <!--<li class="list-group-item">Text Copy</li>-->
-                                <!--<li class="list-group-item">Text Paste</li>-->
                             </ul>
                         </div>
                         <br/>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top logo" src="../images/stackoverflow.jpg" alt="StackOverFlow Page"/>
+                    <div class="card-body">
+                        <h5 class="card-title">StackOverFlow Page</h5>
+                        <div class="card-text">
+                            <p>The following user behaviors are being logged:</p>
+                            <ul class="list-group card-text">
+                                <li class="list-group-item">Mouse Movement Trajectory</li>
+                                <li class="list-group-item">Mouse Click</li>
+                                <li class="list-group-item">Mouse Double Click</li>
+                                <li class="list-group-item">Keyboard Press</li>
+                                <li class="list-group-item">Text Copy</li>
+                                <li class="list-group-item">Text Paste</li>
+                            </ul>
+                        </div>
+                        <br/>
+                        <a href="" class="btn btn-primary" data-ng-click="stackOverFlowTab()">StackOverFlow Page</a>
                     </div>
                 </div>
 
@@ -95,25 +108,6 @@
                     </div>
                 </div>
 
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top logo" src="../images/stackoverflow.jpg" alt="StackOverFlow Page"/>
-                    <div class="card-body">
-                        <h5 class="card-title">StackOverFlow Page</h5>
-                        <div class="card-text">
-                            <p>The following user behaviors are being logged:</p>
-                            <ul class="list-group card-text">
-                                <li class="list-group-item">Mouse Movement Trajectory</li>
-                                <li class="list-group-item">Mouse Click</li>
-                                <li class="list-group-item">Mouse Double Click</li>
-                                <li class="list-group-item">Keyboard Press</li>
-                                <li class="list-group-item">Text Copy</li>
-                                <li class="list-group-item">Text Paste</li>
-                            </ul>
-                        </div>
-                        <br/>
-                        <a href="" class="btn btn-primary" data-ng-click="stackOverFlowTab()">StackOverFlow Page</a>
-                    </div>
-                </div>
             </div>
             <div class="col-1"></div>
         </div>
