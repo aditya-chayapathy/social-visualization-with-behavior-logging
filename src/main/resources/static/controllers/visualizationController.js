@@ -95,7 +95,7 @@ app.controller('VisualizationController', function ($scope, $location, $rootScop
         var layout = {
             autosize: false,
             width: 500,
-            height: 500,
+            height: 350,
             margin: {
                 l: 50,
                 r: 50,
@@ -109,7 +109,7 @@ app.controller('VisualizationController', function ($scope, $location, $rootScop
 
     $http({
         method: 'GET',
-        url: '/visualization/getKeyPressStats?userId=' + $scope.userId
+        url: '/visualization/getHighlightedWordsStats?userId=' + $scope.userId
     }).then(function (response) {
         var data = [{
             x: Object.keys(response.data),

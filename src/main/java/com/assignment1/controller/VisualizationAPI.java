@@ -37,4 +37,9 @@ public class VisualizationAPI {
         return visualizationService.getActionCounts(userId);
     }
 
+    @RequestMapping(value = "/getHighlightedWordsStats", method = RequestMethod.GET)
+    public Map getHighlightedWordsStats(@RequestParam(value = "userId") Long userId) {
+        return visualizationService.getHighlightedWordsStats(userId);
+    }
+
 }
