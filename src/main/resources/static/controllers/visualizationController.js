@@ -35,12 +35,14 @@ app.controller('VisualizationController', function ($scope, $location, $rootScop
 
     $http({
         method: 'GET',
-        url: '/visualization/getKeyPressStats?userId=' + $scope.userId
+        url: '/visualization/getTimeSpentInAppStats?userId=' + $scope.userId
     }).then(function (response) {
         var data = [{
-            x: Object.keys(response.data),
-            y: Object.values(response.data),
-            type: 'bar'
+            y: response.data,
+            boxpoints: 'all',
+            jitter: 0.3,
+            pointpos: -1.8,
+            type: 'box'
         }];
         var layout = {
             autosize: false,
@@ -59,12 +61,12 @@ app.controller('VisualizationController', function ($scope, $location, $rootScop
 
     $http({
         method: 'GET',
-        url: '/visualization/getKeyPressStats?userId=' + $scope.userId
+        url: '/visualization/getMouseTrajectoryStats?userId=' + $scope.userId
     }).then(function (response) {
         var data = [{
-            x: Object.keys(response.data),
-            y: Object.values(response.data),
-            type: 'bar'
+            x: response.data.x,
+            y: response.data.y,
+            type: 'histogram2d'
         }];
         var layout = {
             autosize: false,
@@ -83,12 +85,12 @@ app.controller('VisualizationController', function ($scope, $location, $rootScop
 
     $http({
         method: 'GET',
-        url: '/visualization/getKeyPressStats?userId=' + $scope.userId
+        url: '/visualization/getActionCounts?userId=' + $scope.userId
     }).then(function (response) {
         var data = [{
-            x: Object.keys(response.data),
-            y: Object.values(response.data),
-            type: 'bar'
+            values: Object.values(response.data),
+            labels: Object.keys(response.data),
+            type: 'pie'
         }];
         var layout = {
             autosize: false,

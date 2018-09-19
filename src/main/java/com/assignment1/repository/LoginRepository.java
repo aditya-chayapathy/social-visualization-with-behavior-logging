@@ -16,4 +16,8 @@ public interface LoginRepository extends JpaRepository<Login, Long> {
 
     public List<Login> findTop8ByUserIdAndLoginTypeOrderByTimestampDesc(Long userId, String loginType);
 
+    public List<Login> findAllByUserIdAndLoginType(Long userId, String loginType);
+
+    public List<Login> findAllByUserIdAndLoginTypeAndTimestampGreaterThanOrderByTimestampAsc(Long userId, String loginType, Long timestamp);
+
 }
