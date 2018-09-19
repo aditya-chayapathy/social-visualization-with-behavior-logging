@@ -1,9 +1,9 @@
 'use strict';
 
 app.controller('AccountController', function ($scope, $location, $rootScope, $http) {
-    // if ($rootScope.userId === "" || $rootScope.username === "") {
-    //     $location.path("/");
-    // }
+    if ($rootScope.userId === "" || $rootScope.username === "") {
+        $location.path("/");
+    }
 
     $scope.userId = $rootScope.userId;
 
