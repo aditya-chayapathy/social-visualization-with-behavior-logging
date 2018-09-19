@@ -4,6 +4,7 @@ import com.assignment1.pojo.Event;
 import com.assignment1.pojo.Login;
 import com.assignment1.repository.EventRepository;
 import com.assignment1.repository.LoginRepository;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +31,25 @@ public class VisualizationService {
             }
         }
 
-        return result;
+        HashMap<String, Integer> temp = new HashMap<>();
+        for (int i = 0; i < 10; i++) {
+            String highestkey = "";
+            Integer highestValue = -1;
+            for (String key : result.keySet()) {
+                if (result.get(key) >= highestValue || highestValue == -1) {
+                    highestkey = key;
+                    highestValue = result.get(key);
+                }
+            }
+            temp.put(highestkey, result.get(highestkey));
+            result.remove(highestkey);
+
+            if (result.keySet().isEmpty()) {
+                break;
+            }
+        }
+
+        return temp;
     }
 
     public List getTimeSpentInAppStats(Long userId) {
@@ -112,7 +131,8 @@ public class VisualizationService {
                     continue;
                 if (isStopword(word))
                     continue;
-
+                if (!StringUtils.isAlphanumeric(word))
+                    continue;
                 if (result.containsKey(word)) {
                     result.put(word, result.get(word) + 1);
                 } else {
@@ -121,7 +141,25 @@ public class VisualizationService {
             }
         }
 
-        return result;
+        HashMap<String, Integer> temp = new HashMap<>();
+        for (int i = 0; i < 10; i++) {
+            String highestkey = "";
+            Integer highestValue = -1;
+            for (String key : result.keySet()) {
+                if (result.get(key) >= highestValue || highestValue == -1) {
+                    highestkey = key;
+                    highestValue = result.get(key);
+                }
+            }
+            temp.put(highestkey, result.get(highestkey));
+            result.remove(highestkey);
+
+            if (result.keySet().isEmpty()) {
+                break;
+            }
+        }
+
+        return temp;
 
     }
 
