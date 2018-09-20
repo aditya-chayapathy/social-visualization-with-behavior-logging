@@ -127,6 +127,10 @@ public class VisualizationService {
     }
 
     private Map getKLargestFromMap(HashMap<String, Integer> input, Integer k) {
+        if (input.keySet().isEmpty()) {
+            return input;
+        }
+
         HashMap<String, Integer> temp = new HashMap<>();
         for (int i = 0; i < k; i++) {
             String highestkey = "";
