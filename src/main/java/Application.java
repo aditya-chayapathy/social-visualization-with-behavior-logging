@@ -41,7 +41,5 @@ public class Application implements CommandLineRunner {
         if (user == null) {
             userService.addUser("ccc", "123", "1225 S Dorsey Ln");
         }
-
     }
-
 }
