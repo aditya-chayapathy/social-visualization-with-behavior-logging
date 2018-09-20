@@ -31,25 +31,7 @@ public class VisualizationService {
             }
         }
 
-        HashMap<String, Integer> temp = new HashMap<>();
-        for (int i = 0; i < 10; i++) {
-            String highestkey = "";
-            Integer highestValue = -1;
-            for (String key : result.keySet()) {
-                if (result.get(key) >= highestValue || highestValue == -1) {
-                    highestkey = key;
-                    highestValue = result.get(key);
-                }
-            }
-            temp.put(highestkey, result.get(highestkey));
-            result.remove(highestkey);
-
-            if (result.keySet().isEmpty()) {
-                break;
-            }
-        }
-
-        return temp;
+        return getKLargestFromMap(result, 10);
     }
 
     public List getTimeSpentInAppStats(Long userId) {
@@ -141,26 +123,29 @@ public class VisualizationService {
             }
         }
 
+        return getKLargestFromMap(result, 10);
+    }
+
+    private Map getKLargestFromMap(HashMap<String, Integer> input, Integer k) {
         HashMap<String, Integer> temp = new HashMap<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < k; i++) {
             String highestkey = "";
             Integer highestValue = -1;
-            for (String key : result.keySet()) {
-                if (result.get(key) >= highestValue || highestValue == -1) {
+            for (String key : input.keySet()) {
+                if (input.get(key) >= highestValue || highestValue == -1) {
                     highestkey = key;
-                    highestValue = result.get(key);
+                    highestValue = input.get(key);
                 }
             }
-            temp.put(highestkey, result.get(highestkey));
-            result.remove(highestkey);
+            temp.put(highestkey, input.get(highestkey));
+            input.remove(highestkey);
 
-            if (result.keySet().isEmpty()) {
+            if (input.keySet().isEmpty()) {
                 break;
             }
         }
 
         return temp;
-
     }
 
 }
